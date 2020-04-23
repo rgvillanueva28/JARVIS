@@ -1,0 +1,6 @@
+ brave  =   "C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\brave.exe"
+vlc  =  "D:\Program Files (x86)\VideoLAN\VLC\vlc.exe"  
+  spotify  =  "C:\Users\rgvil\AppData\Roaming\Spotify\Spotify.exe" 
+chrome = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+File Explorer = "E:\Files\Documents\-- Mapua"
+discord = "C:\Users\rgvil\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Discord Inc\Discord.lnk"

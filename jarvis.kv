@@ -1,0 +1,67 @@
+#:kivy 1.11.1
+
+WindowManager:
+    MainWindow:
+    SettingsWindow:
+
+#templates
+<BottomButton@Button>:
+    font_size: 40
+    background_color: 0, 157, 219, 0.8
+    color: 0,0,0,1
+    size_hint: 1, 0.2
+    pos_hint: {"x":0, "bottom":1}
+    font_name   : "font/GilSBI30.ttf"
+    italic: True
+    bold: True
+
+<JarvisButton@Button>:
+    #background_color: 0,0,0,0
+    background_normal: "images/arc.png"
+    background_down: "images/arcpressed.png"
+    #back_color: 1,0,1,1
+    border: (30,30,30,30)
+
+<MainWindow>:
+    name: "main"
+    lbltalk: lbltalk
+
+    FloatLayout:
+        JarvisButton:
+            #text: "Talk"
+            height: root.height/2 if root.height<root.width else root.width/2
+            size_hint_y: None
+            width: root.height/2 if root.height<root.width else root.width/2
+            size_hint_x: None
+            pos_hint: {"center_x":0.5, "center_y":0.6}
+            font_size: 40
+            color: 0.1, 0.5, 0.6, 1
+            #pos_hint: {"x":0, "top":0.4}
+            on_release:
+                root.btnTalk()
+        
+        Label:
+            id: lbltalk
+            pos_hint: {"center_x":0.5, "center_y":0.25}
+            #text_size: self.size
+            size: self.texture_size
+            valign: 'middle'
+            color: 0.1, 0.5, 0.6, 1
+            text: "Press Talk to start"
+
+
+        BottomButton:
+            text: "SETTINGS"
+            on_release:
+                app.root.current = "settings"
+                root.manager.transition.direction = "left"
+
+<SettingsWindow>:
+    name: "settings"
+
+    FloatLayout:
+        BottomButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container m-auto p-3">
+
+        <a href="login.html" class="btn btn-danger active" role="button">Logout</a>
+        <br><br>
+        <button type="button" class="jarvisButton " onclick="talkNow()"></button>
+        <p id="jarvisMessage" class="text-center p-5">PRESS THE ARC REACTOR TO TALK</p>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand arc-footer" href="index.html">
+            <img src="images/arc.png" class="arc-footer" alt="JARVIS">
+        </a>
+        <span class="navbar-text">
+            <h6 class="text-white-50">Created by Rane | 2020</h6>
+        </span>
+        <span class="navbar-text">
+            <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
+            <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
+        </span>
+    </nav>
+</body>
+
+<script>
+    function showResponse(response) {
+        var container = document.getElementById('jarvisMessage');
+
+        container.innerText = response.message;
+        container.style.display = 'block';
+        setTimeout(resetJarvisMessage("PRESS THE ARC REACTOR TO TALK"), 10000);
+    }
+
+    function setJarvisMessage(message) {
+        var container = document.getElementById('jarvisMessage');
+        container.innerText = message;
+    }
+
+    function talkNow() {
+        setJarvisMessage("DETECTING SPEECH");
+        pywebview.api.talk().then(showResponse);
+    }
+
+
+</script>
+
+</html>

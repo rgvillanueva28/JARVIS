@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="text-center">
+
+    <form id="loginForm" onsubmit="return false;" method="post" class="form-signin m-auto p-1">
+        <!--<h2 class="text-center m-auto p-3">Login to JARVIS</h2>-->
+        <div class="form-group p-4">
+            <img src="images/arc.png" class="arc-logo" alt="JARVIS">
+        </div>
+        <div class="form-group">
+            <label for="uname" class="sr-only">Username</label>
+            <input id="uname" class="form-control" placeholder="Username" type="text" required />
+
+            <label for="passwd" class="sr-only">Password</label>
+            <input id="passwd" class="form-control" placeholder="Password" type="password" required />
+            <small id="invalid" class="form-text text-muted pb-4"></small>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="checkLogin()">Submit</button>
+        </div>
+
+        <p id="valid" class="help-block text-center">JARVIS</p>
+        
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+                <h6 class="text-center align-bottom">© Rane Gillian Villanueva | 2020</h6>
+                <h6 class="text-center align-bottom"><a href="https://github.com/rgvillanueva28"
+                        target='_blank'>Github</a></h6>
+            </div>
+        </footer>
+
+
+
+    </form>
+
+
+    <script>
+
+        function showResponse(response) {
+            if (response.valid == "yes") {
+                var container = document.getElementById('valid');
+                document.getElementById('invalid').innerText = "";
+            } else {
+                var container = document.getElementById('invalid');
+            }
+
+            container.innerText = response.message;
+            container.style.display = 'block';
+        }
+
+        function checkLogin() {
+            var user = document.getElementById('uname').value;
+            var passwd = document.getElementById('passwd').value;
+            pywebview.api.checkCreds(user, passwd).then(showResponse);
+        }
+
+    </script>
+</body>
+
+</html>
