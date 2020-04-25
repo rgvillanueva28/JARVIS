@@ -12,32 +12,27 @@
 <body>
     <div class="bg-black container-fluid vh-100">
         <div class="container m-auto p-3">
-
-            <button class="btn btn-danger active" onclick="goLogin()">Logout</button>
-            <p class="text-center text-white">JARVIS<br>Junior Assistant of Rane Villanueva - the Idiotic Senior</p><br>
-
-            <button type="button" class="jarvisButton" onclick="talkNow()"></button>
-            <div class="text-center p-4">
-
-                <div id="loadSpinner" class="spinner-border text-primary" style="visibility: hidden;" role="status">
-                </div>
-                <p id="jarvisMessage" class="text-center text-white">PRESS THE ARC REACTOR TO TALK</p>
-
-            </div>
-
-            
-
+            <h1 class="text-center text-white">Settings</h1>
         </div>
+
+        <div id="table1" class="container m-auto p-3">
+        </div>
+        <div id="table2" class="container m-auto p-3">
+        </div>
+        <div id="table3" class="container m-auto p-3">
+        </div>
+
     </div>
+
     <nav class="navbar fixed-bottom navbar-dark bg-dark">
         <a class="navbar-brand arc-footer" href="index.html">
             <img src="images/arc.png" class="arc-footer" alt="JARVIS">
         </a>
         <form id="settingsForm" onsubmit="return false;" method="post">
-            <button type="submit" id="settingsButton" class="btn btn-secondary">
+            <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goDashboard()">
                 Dashboard
             </button>
-            <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goSettings()">
+            <button type="submit" id="settingsButton" class="btn btn-secondary">
                 Settings
             </button>
         </form>

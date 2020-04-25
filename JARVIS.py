@@ -22,6 +22,12 @@ class JARVIS():
         self.checkDirectories()
         self.checkUrls()
         self.checkAccounts()
+        #self.printDicts()
+    
+    def printDicts(self):
+        print(self.dirDict)
+        print(self.urlDict)
+        print(self.accountsDict)
     
     def getCommand(self):
         #self.inp = input("""Please enter your command: """)
@@ -190,6 +196,8 @@ class JARVIS():
 
         file.close()
         #print(self.accountsDict)
+    
+        
 
 
     """
@@ -198,8 +206,8 @@ class JARVIS():
         print(self.browser)
 """
 
-#if __name__ == '__main__':
-    #main = JARVIS()
+# if __name__ == '__main__':
+#     JARVIS()
     #main.getCommand() #execute
 
     #main.checkUrls()

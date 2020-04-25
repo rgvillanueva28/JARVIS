@@ -4,6 +4,7 @@ import sys
 import random
 import webview
 from JARVIS import JARVIS
+import json
 
 class Api:
     jarvis = JARVIS()
@@ -52,6 +53,38 @@ class Api:
         response = self.jarvis.checkCommand()
         print(response)
     
+    def goTo(self, windowName, title):
+        changeWindow(windowName, title)
+
+    def loadUrl(self):
+        print(1)
+        urlJson = json.dumps(self.jarvis.urlDict)
+        response = {
+                'type': 'url',
+                'message': urlJson
+            }
+        return response
+    
+    def loadDir(self):
+        print(2)
+        dirJson = json.dumps(self.jarvis.dirDict)
+        response = {
+                'type': 'dir',
+                'message': dirJson
+            }
+        return response
+
+    def loadAcc(self):
+        print(3)
+        accJson = json.dumps(self.jarvis.accountsDict)
+        response = {
+                'type': 'acc',
+                'message': accJson
+            }
+        return response
+    
+    def printSomething(self, something):
+        print(something)
 
 
 
@@ -69,22 +102,4 @@ if __name__ == '__main__':
     #window = webview.create_window('JARVIS | Login', 'templates/login.html', js_api = api, min_size=(900, 700))
     window = webview.create_window('JARVIS | Dashboard', 'templates/index.html', js_api = api, min_size=(900, 700))
     webview.start(debug=True)
-
-
-
-'''
-def third_window():
-    # Create a new window after the loop started
-    third_window = webview.create_window('Window #3', html='<h1>Third Window</h1>')
-
-
-
-if __name__ == "__main__":
-    mainWindow = webview.create_window('JARVIS', html=r"<h1>Hi I'm Jarvis!<h1>")
-    loginWindow = webview.create_window('JARVIS | Login', html=r"<h1>Please enter login details!<h1>")
-    settingsWindow = webview.create_window('JARVIS | Settings', html=r"<h1>This is the settings window!<h1>")
-    webview.start(third_window)
-# anything below this line will be executed after program is finished executing
-
-'''
-pass
+    #api.loadUrl()
