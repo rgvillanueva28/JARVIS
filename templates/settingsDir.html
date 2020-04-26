@@ -15,11 +15,10 @@
             <h1 class="text-center text-white">Settings</h1>
         </div>
 
-        <button class="btn btn-danger active" onclick="goUrl()">URLs</button>
-        <button class="btn btn-danger active" onclick="goDir()">Directories</button>
-        <button class="btn btn-danger active" onclick="goAcc()">Accounts</button>
+        <button class="btn btn-danger active" onclick="goSettings()">Back</button>
 
-
+        <div id="stbll" class="container m-auto p-3">
+        </div>
 
     </div>
 
@@ -46,6 +45,11 @@
     </nav>
 
     <script src="script/script.js"></script>
+    <script>
+        window.addEventListener('pywebviewready', function () {
+            generateTables("dir");
+        })    
+    </script>
 
 </body>
 
