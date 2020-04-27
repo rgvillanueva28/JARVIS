@@ -122,7 +122,8 @@ async function generateTables(name) {
             console.log(Object.keys(url)[i]);
             console.log(url[Object.keys(url)[i]]);
         }
-
+        
+        
         var stbl1 = document.getElementById("stbl");
 
         stbl.appendChild(tbl1);

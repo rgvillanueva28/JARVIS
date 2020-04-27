@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="bg-black container-fluid vh-100">
+    <div class="bg-black container-fluid">
         <div class="container m-auto p-3">
             <h1 class="text-center text-white">Settings</h1>
         </div>
@@ -18,32 +18,32 @@
         <button class="btn btn-danger active" onclick="goSettings()">Back</button>
 
         <div id="stbll" class="container m-auto p-3">
+
         </div>
 
+        <br><br><br><br>
     </div>
+        <nav class="navbar fixed-bottom navbar-dark bg-dark">
+            <a class="navbar-brand arc-footer" href="index.html">
+                <img src="images/arc.png" class="arc-footer" alt="JARVIS">
+            </a>
+            <form id="settingsForm" onsubmit="return false;" method="post">
+                <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goDashboard()">
+                    Dashboard
+                </button>
+                <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goSettings()">
+                    Settings
+                </button>
+            </form>
 
-    <nav class="navbar fixed-bottom navbar-dark bg-dark">
-        <a class="navbar-brand arc-footer" href="index.html">
-            <img src="images/arc.png" class="arc-footer" alt="JARVIS">
-        </a>
-        <form id="settingsForm" onsubmit="return false;" method="post">
-            <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goDashboard()">
-                Dashboard
-            </button>
-            <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goSettings()">
-                Settings
-            </button>
-        </form>
-
-        <span class="navbar-text">
-            <h6 class="text-white-50">Created by Rane | 2020</h6>
-        </span>
-        <span class="navbar-text">
-            <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
-            <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
-        </span>
-    </nav>
-
+            <span class="navbar-text">
+                <h6 class="text-white-50">Created by Rane | 2020</h6>
+            </span>
+            <span class="navbar-text">
+                <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
+                <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
+            </span>
+        </nav>
     <script src="script/script.js"></script>
     <script>
         window.addEventListener('pywebviewready', function () {

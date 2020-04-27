@@ -1,7 +1,12 @@
+body {
+    position: relative;
+}
 .bg-black {
     background-color: black;
     background: url('../images/bg.jpg');
+    background-repeat: no-repeat;
     background-size: 100% 100%;
+    background-attachment: fixed;
     z-index: -1;
     top:0;
     bottom:0;
