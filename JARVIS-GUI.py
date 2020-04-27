@@ -106,5 +106,5 @@ if __name__ == "__main__":
     api = Api()
     #window = webview.create_window("JARVIS | Login", "templates/login.html", js_api = api, min_size=(900, 700))
     window = webview.create_window("JARVIS | Dashboard", "templates/index.html", js_api = api, min_size=(900, 700),text_select=True)
-    webview.start(debug=True)
+    webview.start(debug=True, gui="cef")
     #api.loadUrl()

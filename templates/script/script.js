@@ -105,10 +105,10 @@ async function generateTables(name) {
         tbl1 = document.createElement('table');
 
         console.log("dito");
-        tbl1.style.width = '100%';
-        tbl1.style.border = '1px';
         tbl1.setAttribute('contenteditable', 'true');
-        tbl1.setAttribute('class', 'table table-dark');
+        tbl1.setAttribute('class', 'table table-striped table-bordered table-dark');
+
+
 
         for (var i = 0; i < len; i++) {
 
@@ -122,11 +122,21 @@ async function generateTables(name) {
             console.log(Object.keys(url)[i]);
             console.log(url[Object.keys(url)[i]]);
         }
-        
-        
         var stbl1 = document.getElementById("stbl");
 
+
+        tblh1 = document.createElement('thead');
+        tblh1.setAttribute('class', 'thead-light');
+        r1 = tblh1.insertRow(0);
+        d1 = r1.insertCell(0);
+        d2 = r1.insertCell(1);
+        d1.innerHTML = "Name";
+        d2.innerHTML = "URL";
+        
+        tbl1.appendChild(tblh1);
+
         stbl.appendChild(tbl1);
+       
     } else if (name == "dir") {
         await pywebview.api.loadDir().then(saveJson);
 
