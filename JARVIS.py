@@ -78,7 +78,6 @@ class JARVIS():
                 return "Program not found".upper()
         else:
             self.speak("Program not found")
-            print("Program not found")
             return "Program not found".upper()
         #print(program)
 
@@ -115,7 +114,6 @@ class JARVIS():
 
             #wb.open_new_tab(url)
             #print("good")
-            pass
         else:
             #wb.open_new_tab(r"https://" + url + r".com/")
             print("Login credentials not found.")

@@ -51,8 +51,8 @@ body {
 }
 
 .arc-footer{
-    max-width: 50px; 
-    max-height: 50px;
+    max-width: 45px; 
+    max-height: 45px;
 }
 .arc-footer:hover{
     opacity: 0.7;

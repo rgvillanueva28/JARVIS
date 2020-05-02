@@ -47,7 +47,7 @@ class Api:
 
     def getCommand(self):
         text = self.jarvis.getCommand()
-        print(text)
+        #print(text)
         #threading.Timer(3.0, self.checkCommand).start()
         thread2 = threading.Thread(target = self.checkCommand)
         thread2.setDaemon(True)
@@ -55,19 +55,19 @@ class Api:
         return text
 
     def jarvisText(self, message):
-        print(message, "here")
+        #print(message, "here")
 
         self.jarvis.inp = message
         text = self.jarvis.checkCommand()
         response = {
                 "message": text.upper()
             }
-        print(response)
+        #print(response)
         return response
 
     def checkCommand(self):
         response = self.jarvis.checkCommand()
-        print(response)
+        #print(response)
     
     def goTo(self, windowName, title):
         changeWindow(windowName, title)
@@ -95,9 +95,14 @@ class Api:
                 "message": accJson
             }
         return response
-    
-    def printSomething(self, something):
-        print(something)
+
+    #saving to file
+    def saveUrl(self, name, url):
+        urlFile=open(r"database/urls.txt", "a+")
+        urlFile.write("\n" + name + ' = \"' + url + '\"')
+        urlFile.close
+
+        self.jarvis.checkUrls()
 
 
 

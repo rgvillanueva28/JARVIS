@@ -13,8 +13,7 @@
     <div class="bg-black container-fluid vh-100">
         <div class="container m-auto p-3">
 
-            <button class="btn btn-danger active" onclick="goLogin()">Logout</button>
-            <p class="text-center text-white">JARVIS<br>Junior Assistant of Rane Villanueva - the Idiotic Senior</p><br>
+            <p class="text-center text-white">Junior Assistant of Rane Villanueva - the Idiotic Senior</p><br>
 
             <button type="button" class="jarvisButton" onclick="talkNow()"></button>
             <div class="text-center p-4">
@@ -26,7 +25,7 @@
                 <div class="input-group mb-3 pl-5 pr-5">
                     <div class="input-group-prepend" id="button-addon3">
                         <button id="jarvisClearText" class="btn btn-danger" onclick="jarvisClearText()">CLEAR</button>
-                      </div>
+                    </div>
                     <input id="jarvisText" type="text" class="form-control" placeholder="or Type your command here"
                         aria-label="Recipient's username" aria-describedby="button-addon2">
                     <div class="input-group-append">
@@ -39,26 +38,36 @@
 
         </div>
     </div>
-    <nav class="navbar fixed-bottom navbar-dark bg-dark">
-        <a class="navbar-brand arc-footer" href="index.html">
-            <img src="images/arc.png" class="arc-footer" alt="JARVIS">
+    <nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://github.com/rgvillanueva28/JARVIS" target="_blank">
+            <!-- <img src="images/arc.png" class="arc-footer" alt="JARVIS"> -->
+            JARVIS
         </a>
-        <form id="settingsForm" onsubmit="return false;" method="post">
-            <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goDashboard()">
-                Dashboard
-            </button>
-            <button type="submit" id="settingsButton" class="btn btn-secondary" onclick="goSettings()">
-                Settings
-            </button>
-        </form>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a id="dashboardButton" class="nav-item nav-link active">
+                    Dashboard
+                </a>
+                <a id="settingsButton" class="nav-item nav-link" onclick="goSettings()">
+                    Settings
+                </a>
+            </div>
+        </div>
 
-        <span class="navbar-text">
+        <span class="navbar-text pr-3">
+            © Rane Gillian Villanueva | 2020
+        </span>
+        <span class="navbar-text pr-3">
+            <a href="https://github.com/rgvillanueva28" target='_blank'>Github</a>
+        </span>
+        <button class="btn btn-danger active" onclick="goLogin()">Logout</button>
+        <!-- <span class="navbar-text">
             <h6 class="text-white-50">Created by Rane | 2020</h6>
         </span>
         <span class="navbar-text">
             <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
             <h6 class="text-center"><a href="https://github.com/rgvillanueva28" target='_blank'>Github</a></h6>
-        </span>
+        </span> -->
     </nav>
 
     <script src="script/script.js"></script>

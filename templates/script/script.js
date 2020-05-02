@@ -2,6 +2,7 @@ const loadSpinner = document.getElementById('loadSpinner');
 var url;
 var dir;
 var acc;
+var urlFlag = false;
 
 //jarvis input
 var jarvisTextInput = document.getElementById('jarvisText');
@@ -65,11 +66,10 @@ function checkLogin() {
 
 
 //ROUTINGS
-async function goSettings() {
+function goSettings() {
 
     //alert(Object.keys(urlJson).length);
     pywebview.api.goTo('templates/settings.html', 'JARVIS | Settings');
-
 
 }
 
@@ -134,6 +134,7 @@ async function generateTables(name) {
         console.log("dito");
         tbl1.setAttribute('contenteditable', 'true');
         tbl1.setAttribute('class', 'table table-striped table-bordered table-dark');
+        tbl1.setAttribute('id', 'urlTbl');
 
 
 
@@ -175,6 +176,7 @@ async function generateTables(name) {
         tbl2.style.border = '1px';
         tbl2.setAttribute('contenteditable', 'true');
         tbl2.setAttribute('class', 'table table-dark');
+        tbl2.setAttribute('id', 'dirTbl');
 
         for (var i = 0; i < len; i++) {
 
@@ -201,6 +203,7 @@ async function generateTables(name) {
         tbl3.style.border = '1px';
         tbl3.setAttribute('contenteditable', 'true');
         tbl3.setAttribute('class', 'table table-dark');
+        tbl3.setAttribute('id', 'accTbl');
 
         for (var i = 0; i < len; i++) {
 
@@ -224,3 +227,71 @@ async function generateTables(name) {
     console.log("dito na boss");
 
 }
+
+
+var dirTable = document.getElementById("dirTbl");
+var accTable = document.getElementById("accTbl");
+//ADD URL
+function addUrl() {
+    var urlTable = document.getElementById("urlTbl");
+    var nameText = urlTable.rows[urlTable.rows.length - 1].cells[0].innerHTML;
+    var urlText = urlTable.rows[urlTable.rows.length - 1].cells[1].innerHTML;
+
+    if (url.hasOwnProperty(nameText) == false) {
+        //show error //duplicate
+    } else if (nameText == "" || urlText == "") {
+        //show error
+    } else {
+        var newRow = urlTable.insertRow();
+        var newCell = newRow.insertCell(0);
+        var newCell = newRow.insertCell(1);
+        urlFlag = True;
+    }
+    // if (name == "" || url == ""){
+    //     //show error
+    // } else {
+
+    //     var newRow = urlTable.insertRow();
+    //     var newCell = newRow.insertCell(0);
+    //     var newCell = newRow.insertCell(1);
+    // }
+}
+
+async function saveUrl() {
+    var urlTable = document.getElementById("urlTbl");
+    var nameText = urlTable.rows[urlTable.rows.length - 1].cells[0].innerHTML;
+    var urlText = urlTable.rows[urlTable.rows.length - 1].cells[1].innerHTML;
+
+    var urlLength = Object.keys(url).length;
+    var tableLength = urlTable.rows.length;
+
+
+    if ((nameText == "" || urlText == "") && flag == false) {
+        //show error
+        console.log("blank")
+    } else {
+        await pywebview.api.saveUrl(nameText, urlText);
+        await pywebview.api.loadUrl().then(saveJson);
+        urlFlag = false;
+    }
+}
+
+// function saveUrl() {
+//     var urlTable = document.getElementById("urlTbl")
+//     var rowLen = urlTable.rows.length;
+
+//     for (i = 0; i < rowLen; i++) {
+
+//         //gets cells of current row
+//         var oCells = oTable.rows.item(i).cells;
+
+//         //gets amount of cells of current row
+//         var cellLength = oCells.length;
+
+//         //loops through each cell in current row
+//         for (var j = 0; j < cellLength; j++) {
+//             /* get your cell info here */
+//             /* var cellVal = oCells.item(j).innerHTML; */
+//         }
+//     }
+// }

@@ -1,24 +1,13 @@
 import webview
 
-def evaluate_js(window):
-    result = window.evaluate_js(
-        r"""
-        var h1 = document.createElement('h1')
-        var text = document.createTextNode('Hello pywebview')
-        h1.appendChild(text)
-        document.body.appendChild(h1)
 
-        document.body.style.backgroundColor = '#212121'
-        document.body.style.color = '#f2f2f2'
+def open_file_dialog(window):
+    file_types = ('Image Files (*.bmp;*.jpg;*.gif)', 'All files (*.*)')
 
-        // Return user agent
-        'User agent:\n' + navigator.userAgent;
-        """
-    )
-
+    result = window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=True, file_types=file_types)
     print(result)
 
 
 if __name__ == '__main__':
-    window = webview.create_window('Run custom JavaScript')
-    webview.start(evaluate_js, window)
+    window = webview.create_window('Open file dialog example', 'https://pywebview.flowrl.com/hello')
+    webview.start(open_file_dialog, window)
