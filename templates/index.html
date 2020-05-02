@@ -23,9 +23,19 @@
                 </div>
                 <p id="jarvisMessage" class="text-center text-white">PRESS THE ARC REACTOR TO TALK</p>
 
+                <div class="input-group mb-3 pl-5 pr-5">
+                    <div class="input-group-prepend" id="button-addon3">
+                        <button id="jarvisClearText" class="btn btn-danger" onclick="jarvisClearText()">CLEAR</button>
+                      </div>
+                    <input id="jarvisText" type="text" class="form-control" placeholder="or Type your command here"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button id="jarvisTextButton" class="btn btn-primary" onclick="jarvisText()">SEND</button>
+                    </div>
+                </div>
             </div>
+            <br>
 
-            
 
         </div>
     </div>

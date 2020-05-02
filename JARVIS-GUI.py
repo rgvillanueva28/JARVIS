@@ -54,6 +54,17 @@ class Api:
         thread2.start()
         return text
 
+    def jarvisText(self, message):
+        print(message, "here")
+
+        self.jarvis.inp = message
+        text = self.jarvis.checkCommand()
+        response = {
+                "message": text.upper()
+            }
+        print(response)
+        return response
+
     def checkCommand(self):
         response = self.jarvis.checkCommand()
         print(response)
@@ -105,6 +116,6 @@ def getElem(elemId):
 if __name__ == "__main__":
     api = Api()
     #window = webview.create_window("JARVIS | Login", "templates/login.html", js_api = api, min_size=(900, 700))
-    window = webview.create_window("JARVIS | Dashboard", "templates/index.html", js_api = api, min_size=(900, 700),text_select=True)
+    window = webview.create_window("JARVIS | Dashboard", "templates/index.html", js_api = api, min_size=(1000, 750),text_select=True)
     webview.start(debug=True, gui="cef")
     #api.loadUrl()

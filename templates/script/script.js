@@ -3,12 +3,19 @@ var url;
 var dir;
 var acc;
 
+//jarvis input
+var jarvisTextInput = document.getElementById('jarvisText');
+
+//JARVIS
 function showResponse(response) {
     var container = document.getElementById('jarvisMessage');
 
     container.innerText = response.message;
     container.style.display = 'block';
-    setTimeout(function () { setJarvisMessage("PRESS THE ARC REACTOR TO TALK", "hidden") }, 5000);
+    setTimeout(function () {
+        setJarvisMessage("PRESS THE ARC REACTOR TO TALK", "hidden");
+        jarvisTextInput.value = "";
+    }, 5000);
 }
 
 function setJarvisMessage(message, loadStatus) {
@@ -22,6 +29,22 @@ function talkNow() {
     pywebview.api.talk().then(showResponse);
 }
 
+//JARVIS TEXT
+jarvisTextInput.addEventListener("keyup", event => {
+    if (event.keyCode == 13) {
+        document.getElementById("jarvisTextButton").click();
+    }
+});
+
+function jarvisText() {
+    pywebview.api.jarvisText(jarvisTextInput.value).then(showResponse);
+}
+
+function jarvisClearText() {
+    jarvisTextInput.value = "";
+}
+
+//LOGIN
 function showLoginResponse(response) {
     if (response.valid == "yes") {
         var container = document.getElementById('valid');
@@ -40,6 +63,8 @@ function checkLogin() {
     pywebview.api.checkCreds(user, passwd).then(showLoginResponse);
 }
 
+
+//ROUTINGS
 async function goSettings() {
 
     //alert(Object.keys(urlJson).length);
@@ -68,6 +93,8 @@ function goAcc() {
     pywebview.api.goTo('templates/settingsAcc.html', 'JARVIS | Accounts Settings');
 }
 
+
+//SETTINGS
 function saveJson(response) {
     if (response.type == "url") {
         //url = response.message;
@@ -132,11 +159,11 @@ async function generateTables(name) {
         d2 = r1.insertCell(1);
         d1.innerHTML = "Name";
         d2.innerHTML = "URL";
-        
+
         tbl1.appendChild(tblh1);
 
         stbl.appendChild(tbl1);
-       
+
     } else if (name == "dir") {
         await pywebview.api.loadDir().then(saveJson);
 

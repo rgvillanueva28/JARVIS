@@ -61,8 +61,9 @@ class JARVIS():
             elif command == "login":
                 self.loginCmd()
             else:
-                print("Command not found")
-                return "Command not found"
+                
+                #print("Command not found")
+                self.speak("Command not found")
             
     def openCmd(self):
         programName = self.inp.lower().split(" ", 1)[1]
