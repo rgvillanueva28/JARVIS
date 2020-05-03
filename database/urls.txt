@@ -1,3 +1,4 @@
 facebook = "https://www.facebook.com/"
 messenger = "https://messenger.com/"
 blackboard = "https://mapua.blackboard.com/"
+github = "https://github.com/"

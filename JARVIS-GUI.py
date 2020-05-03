@@ -11,10 +11,8 @@ import json
 #     'persist_session_cookies': True
 # })
 
+
 class Api:
-    jarvis = JARVIS()
-    def __init__(self):
-        pass
     
     def checkCreds(self, user, passwd):
         if (user=="r") and (passwd=="r"):
@@ -23,7 +21,7 @@ class Api:
                 "valid": "yes"
             }
 
-            threading.Timer(0.1, self.jarvis.speak, [response["message"]]).start()
+            threading.Timer(0.1, JARVIS().speak, [response["message"]]).start()
             threading.Timer(3.0, changeWindow, ["templates/index.html", "JARVIS | Dashboard"]).start()
 
             return response
@@ -46,7 +44,7 @@ class Api:
         return response
 
     def getCommand(self):
-        text = self.jarvis.getCommand()
+        text = JARVIS().getCommand()
         #print(text)
         #threading.Timer(3.0, self.checkCommand).start()
         thread2 = threading.Thread(target = self.checkCommand)
@@ -57,8 +55,8 @@ class Api:
     def jarvisText(self, message):
         #print(message, "here")
 
-        self.jarvis.inp = message
-        text = self.jarvis.checkCommand()
+        JARVIS().inp = message
+        text = JARVIS().checkCommand()
         response = {
                 "message": text.upper()
             }
@@ -66,14 +64,14 @@ class Api:
         return response
 
     def checkCommand(self):
-        response = self.jarvis.checkCommand()
+        response = JARVIS().checkCommand()
         #print(response)
     
     def goTo(self, windowName, title):
         changeWindow(windowName, title)
 
     def loadUrl(self):
-        urlJson = json.dumps(self.jarvis.urlDict)
+        urlJson = json.dumps(JARVIS().urlDict)
         response = {
                 "type": "url",
                 "message": urlJson
@@ -81,7 +79,7 @@ class Api:
         return response
     
     def loadDir(self):
-        dirJson = json.dumps(self.jarvis.dirDict)
+        dirJson = json.dumps(JARVIS().dirDict)
         response = {
                 "type": "dir",
                 "message": dirJson
@@ -89,7 +87,7 @@ class Api:
         return response
 
     def loadAcc(self):
-        accJson = json.dumps(self.jarvis.accountsDict)
+        accJson = json.dumps(JARVIS().accountsDict)
         response = {
                 "type": "acc",
                 "message": accJson
@@ -100,9 +98,16 @@ class Api:
     def saveUrl(self, name, url):
         urlFile=open(r"database/urls.txt", "a+")
         urlFile.write("\n" + name + ' = \"' + url + '\"')
-        urlFile.close
+        urlFile.close()
 
-        self.jarvis.checkUrls()
+        JARVIS().checkUrls()
+    
+    def saveDir(self, name, dirr):
+        dirFile=open(r"database/urls.txt", "a+")
+        dirFile.write("\n" + name + ' = \"' + dirr + '\"')
+        dirFile.close()
+
+        JARVIS().checkDirectories()
 
 
 

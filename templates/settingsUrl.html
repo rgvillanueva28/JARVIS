@@ -10,19 +10,28 @@
 </head>
 
 <body>
-    <div class="bg-black container-fluid vh-100">
+    <div class="bg-black container-fluid min-vh-100">
         <div class="container m-auto p-3 text-center">
             <h1 class="text-center text-white pb-5">URLs</h1>
 
         </div>
 
+        <div class="input-group container">
+            <div class="input-group-prepend">
+                <input id="nameText" type="text" aria-label="First name" class="form-control" placeholder="Name"
+                    style="width: 200px">
+            </div>
+            <input id="urlText" type="text" aria-label="Last name" class="form-control" placeholder="URL or link">
+            <div class="input-group-append">
+                <button style="width: 80px;" type="submit" class="form-control btn btn-secondary"
+                    onclick="addUrl()">ADD</button>
+            </div>
+        </div>
+        
+
         <div id="stbl" class="container m-auto">
         </div>
 
-        <div class="container m-auto p-3 text-center">
-            <button type="submit" class="btn btn-secondary" onclick="addUrl()">ADD</button>
-            <button type="submit" class="btn btn-secondary" onclick="saveUrl()">SAVE</button>
-        </div>
 
         <br><br><br><br>
     </div>

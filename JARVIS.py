@@ -205,8 +205,8 @@ class JARVIS():
         print(self.browser)
 """
 
-# if __name__ == '__main__':
-#     JARVIS()
+if __name__ == '__main__':
+    JARVIS().checkUrls()
     #main.getCommand() #execute
 
     #main.checkUrls()
