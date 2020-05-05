@@ -18,16 +18,19 @@ class JARVIS():
         self.dirDict = {}
         self.urlDict = {}
         self.accountsDict = {}
+        self.selectorDict = {}
         self.browser = ""
         self.checkDirectories()
         self.checkUrls()
         self.checkAccounts()
+        self.checkSelectors()
         #self.printDicts()
     
     def printDicts(self):
         print(self.dirDict)
         print(self.urlDict)
         print(self.accountsDict)
+        print(self.selectorDict)
     
     def getCommand(self):
         #self.inp = input("""Please enter your command: """)
@@ -100,8 +103,8 @@ class JARVIS():
         if domain in self.urlDict and domain in self.accountsDict:
             user = self.accountsDict[domain][0]
             passwd = self.accountsDict[domain][1]
-            userSel = self.accountsDict[domain][2]
-            passSel = self.accountsDict[domain][3]
+            userSel = self.selectorDict[domain][0]
+            passSel = self.selectorDict[domain][1]
             url = self.urlDict[domain]
 
             #print(user,passwd,userSel,passSel,domain)
@@ -190,11 +193,30 @@ class JARVIS():
             self.accountsDict[domain] = credsList
             #print("'" + domain + "'")
             #print("'" + str(credsList) + "'")
-        
-        
 
         file.close()
         #print(self.accountsDict)
+    
+    def checkSelectors(self):
+        try:
+            file = open(r"database/urlSelector.txt", "r")
+        except Exception as ex:
+            print(ex)
+
+        for line in file:
+            lineText = " ".join(line.split())
+            domain, sel = lineText.split("=")
+            domain = domain.strip()
+            selectorList = sel.strip().split(";")
+            selectorList = [i.strip() for i in selectorList]
+            self.selectorDict[domain] = selectorList
+            #print("'" + domain + "'")
+            #print("'" + str(credsList) + "'")
+
+        
+
+        file.close()
+        #print(self.selectorDict)
     
         
 
@@ -206,7 +228,9 @@ class JARVIS():
 """
 
 if __name__ == '__main__':
-    JARVIS().checkUrls()
+    pass
+    #JARVIS()
+
     #main.getCommand() #execute
 
     #main.checkUrls()

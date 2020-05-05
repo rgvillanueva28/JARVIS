@@ -12,30 +12,33 @@
 <body>
     <div class="bg-black container-fluid min-vh-100">
         <div class="container m-auto p-3 text-center">
-            <h1 class="text-center text-white pb-5">URLs</h1>
+            <h1 class="text-center text-white pb-5">Selectors</h1>
 
         </div>
 
         <div class="input-group container">
             <div class="input-group-prepend">
                 <input id="nameText" type="text" aria-label="First name" class="form-control" placeholder="Name"
-                    style="width: 220px">
+                    style="width: 200px">
+                <input id="userSelText" type="text" aria-label="Last name" class="form-control"
+                    placeholder="Username or Email Selector" style="width: 200px">
             </div>
-            <input id="urlText" type="text" aria-label="Last name" class="form-control" placeholder="URL or link">
+            <input id="passSelText" type="text" aria-label="Last name" class="form-control"
+                placeholder="Password Selector">
             <div class="input-group-append">
                 <button style="width: 80px;" type="submit" class="form-control btn btn-secondary"
-                    onclick="addUrl()">ADD</button>
+                    onclick="addSel()">ADD</button>
             </div>
         </div>
+
         <br>
 
         <div id="stbl" class="container m-auto">
-        </div>
 
+        </div>
 
         <br><br><br><br>
     </div>
-
 
     <nav class="navbar navbar-expand fixed-bottom navbar-dark bg-dark">
         <a class="navbar-brand" href="https://github.com/rgvillanueva28/JARVIS" target="_blank">
@@ -62,12 +65,10 @@
         <button class="btn btn-danger active" onclick="goSettings()">Back</button>
     </nav>
 
-
-
     <script src="script/script.js"></script>
     <script>
         window.addEventListener('pywebviewready', function () {
-            generateTables("url");
+            generateTables("sel");
         })    
     </script>
 

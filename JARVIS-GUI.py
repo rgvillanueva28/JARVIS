@@ -94,6 +94,14 @@ class Api:
             }
         return response
 
+    def loadSel(self):
+        selJson = json.dumps(JARVIS().selectorDict)
+        response = {
+                "type": "sel",
+                "message": selJson
+            }
+        return response
+
     #saving to file
     def saveUrl(self, name, url):
         urlFile=open(r"database/urls.txt", "a+")
@@ -103,11 +111,25 @@ class Api:
         JARVIS().checkUrls()
     
     def saveDir(self, name, dirr):
-        dirFile=open(r"database/urls.txt", "a+")
+        dirFile=open(r"database/directories.txt", "a+")
         dirFile.write("\n" + name + ' = \"' + dirr + '\"')
         dirFile.close()
 
         JARVIS().checkDirectories()
+    
+    def saveAcc(self, name, username, passwd):
+        accFile=open(r"database/accounts.txt", "a+")
+        accFile.write("\n" + name + ' = ' + username + ';' + passwd)
+        accFile.close()
+
+        JARVIS().checkAccounts()
+    
+    def saveSel(self, name, usernameSel, passwdSel):
+        selFile=open(r"database/urlSelector.txt", "a+")
+        selFile.write("\n" + name + ' = ' + usernameSel + ';' + passwdSel)
+        selFile.close()
+
+        JARVIS().checkSelectors()
 
 
 

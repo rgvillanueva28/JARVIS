@@ -12,22 +12,24 @@
 <body>
     <div class="bg-black container-fluid min-vh-100">
         <div class="container m-auto p-3 text-center">
-            <h1 class="text-center text-white pb-5">URLs</h1>
+            <h1 class="text-center text-white pb-5">Accounts</h1>
 
         </div>
 
         <div class="input-group container">
             <div class="input-group-prepend">
                 <input id="nameText" type="text" aria-label="First name" class="form-control" placeholder="Name"
-                    style="width: 200px">
+                    style="width: 150px">
+                <input id="userText" type="text" aria-label="Last name" class="form-control" placeholder="Username or Email"
+                style="width: 280px">
             </div>
-            <input id="urlText" type="text" aria-label="Last name" class="form-control" placeholder="Accounts">
+            <input id="passText" type="text" aria-label="Last name" class="form-control" placeholder="password">
             <div class="input-group-append">
                 <button style="width: 80px;" type="submit" class="form-control btn btn-secondary"
                     onclick="addAcc()">ADD</button>
             </div>
         </div>
-
+        <br>
         <div id="stbl" class="container m-auto">
         </div>
 
