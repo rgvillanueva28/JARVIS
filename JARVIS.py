@@ -13,6 +13,9 @@ import threading
 
 
 class JARVIS():
+
+
+    
     def __init__(self):
         self.inp = ""
         self.dirDict = {}
@@ -26,12 +29,14 @@ class JARVIS():
         self.checkSelectors()
         #self.printDicts()
     
+
     def printDicts(self):
         print(self.dirDict)
         print(self.urlDict)
         print(self.accountsDict)
         print(self.selectorDict)
     
+
     def getCommand(self):
         #self.inp = input("""Please enter your command: """)
         #print("Say: ")
@@ -39,11 +44,15 @@ class JARVIS():
         print('jarvis getCommand')
         self.inp = vr().recognize()
         #self.inp = "login messenger"
+        print(self.inp)
         return self.inp.upper()
         #self.checkCommand()
     
+
     def checkCommand(self):
-        print('jarvis checkCommand')
+        print("self.inp = ", self.inp)
+        print(self.inp.lower().split())
+
         if self.inp.lower().split()[0] == "error":
             print("Can't understand. Sorry")
             print(self.inp)
@@ -68,6 +77,7 @@ class JARVIS():
                 #print("Command not found")
                 self.speak("Command not found")
             
+
     def openCmd(self):
         programName = self.inp.lower().split(" ", 1)[1]
         if programName in self.dirDict:
@@ -84,6 +94,7 @@ class JARVIS():
             return "Program not found".upper()
         #print(program)
 
+
     def browseCmd(self):
         url = self.inp.lower().split(" ", 1)[1]
         if url in self.urlDict:
@@ -97,6 +108,7 @@ class JARVIS():
             #print("bad")
         #print(program)
     
+
     def loginCmd(self):
         domain = self.inp.lower().split(" ", 1)[1]
 
@@ -122,6 +134,7 @@ class JARVIS():
             print("Login credentials not found.")
         #print(program)
 
+
     def speak(self, mess):
         #print(os.path.dirname(__file__))
         file = os.path.dirname(__file__)+r'/audio/response.wav'
@@ -144,6 +157,7 @@ class JARVIS():
             # playsound.playsound(file)
             # os.remove(file)
 
+
     def checkDirectories(self):
         try:
             file = open(r"database/directories.txt","r")
@@ -161,6 +175,7 @@ class JARVIS():
         file.close()
         #print(self.dirDict)
     
+
     def checkUrls(self):
         try:
             file = open(r"database/urls.txt","r")
@@ -177,6 +192,7 @@ class JARVIS():
 
         file.close()
         #print(self.urlDict)
+
 
     def checkAccounts(self):
         try:
@@ -197,6 +213,7 @@ class JARVIS():
         file.close()
         #print(self.accountsDict)
     
+
     def checkSelectors(self):
         try:
             file = open(r"database/urlSelector.txt", "r")
@@ -218,7 +235,11 @@ class JARVIS():
         file.close()
         #print(self.selectorDict)
     
-        
+
+
+
+
+
 
 
     """
@@ -226,6 +247,7 @@ class JARVIS():
         self.browser = wb.get()
         print(self.browser)
 """
+
 
 if __name__ == '__main__':
     pass

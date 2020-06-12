@@ -41,6 +41,8 @@ jarvisTextInput.addEventListener("keyup", event => {
 
 function jarvisText() {
     pywebview.api.jarvisText(jarvisTextInput.value).then(showResponse);
+    // document.getElementById('jarvisMessage').innerText = jarvisTextInput.value;
+    jarvisTextInput.value = "";
 }
 
 function jarvisClearText() {
