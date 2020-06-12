@@ -1,6 +1,7 @@
 #Don't upload my account details
 database/accounts.db
 database/accounts.txt
+dbTransaction.py
 
 #vscode
 .vscode/
